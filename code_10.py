@@ -1,1 +1,1 @@
-
+import nltk as nk
