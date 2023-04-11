@@ -15,3 +15,5 @@ for review in reviews:
         if token[1] == 'JJ' or token[1] == 'JJS':
          #print(token[0])
          print(token)
+
+
