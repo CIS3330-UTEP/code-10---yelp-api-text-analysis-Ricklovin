@@ -1,19 +1,32 @@
-import nltk 
 
-nltk.download('punkt')
+from yelpapi import YelpAPI
+import pandas as pd
 
-reviews = open('tacos_reviews.txt')
 
-for review in reviews:
-    tokens = nltk.word_tokenize(review)
-    print(tokens)
+api_key = "_2OMY6ojK2plDlNROhYCdsB86PRF-n31bxsn7JpOXLg2bu10nl8R1hm67ImVfuatWcNYKay4mdi6lEIiNJ3Zw4QzQxxEL3cxO2XaqJWipDnk5I7nwxq-ylsJi4YzZHYx"
+yelp_api = YelpAPI(api_key)
 
-    pos_tags = nltk.pos_tag(tokens)
-    print(pos_tags)
+search_term = "sushi"
+search_location = "El Paso, TX"
+search_sort_by = 'rating'#best_mstch, rating, review_count, distance
+search_limit = 20
 
-    for token in tokens:
-        if token[1] == 'JJ' or token[1] == 'JJS':
-         print(token[0])
-         print(token)
+
+search_results = yelp_api.search_query(term=search_term, location=search_location,sort_by = search_sort_by, limit=search_limit, offset = 20)
+
+result_df = pd.DataFrame.from_dict(search_results['businesses'])
+print(result_df['alias'])
+#result_df.to_csv("inclass_yelpapi.csv")
+
+#reviews_query
+id_for_reviews = 'matsuharu-japanese-restaurant-el-paso'
+reviews_result = yelp_api.reviews_query(id=id_for_reviews)
+print(reviews_result)
+
+reviews_df = pd.DataFrame.from_dict(reviews_result['reviews'])
+
+print(reviews_df['text'])
+
+reviews_df.to_csv(f"{id_for_reviews}_reviews_")
 
 
