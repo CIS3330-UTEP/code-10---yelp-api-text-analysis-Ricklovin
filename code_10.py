@@ -23,6 +23,34 @@ id_for_reviews = 'matsuharu-japanese-restaurant-el-paso','tsunami-sushi-el-paso'
 reviews_result = yelp_api.reviews_query(id=id_for_reviews)
 print(reviews_result)
 
+
+id_for_reviews = 'matsuharu-japanese-restaurant-el-paso','tsunami-sushi-el-paso', 'kaizen-sushi-el-paso','aki-sushi-el-paso','hamachi-sushi-el-paso','riyoma-el-paso','koze-el-paso'
+reviews_result = yelp_api.reviews_query(id=id_for_reviews)
+print(reviews_result)
+
+
+id_for_reviews = 'matsuharu-japanese-restaurant-el-paso','tsunami-sushi-el-paso', 'kaizen-sushi-el-paso','aki-sushi-el-paso','hamachi-sushi-el-paso','riyoma-el-paso','koze-el-paso'
+reviews_result = yelp_api.reviews_query(id=id_for_reviews)
+print(reviews_result)
+
+
+id_for_reviews = 'matsuharu-japanese-restaurant-el-paso','tsunami-sushi-el-paso', 'kaizen-sushi-el-paso','aki-sushi-el-paso','hamachi-sushi-el-paso','riyoma-el-paso','koze-el-paso'
+reviews_result = yelp_api.reviews_query(id=id_for_reviews)
+print(reviews_result)
+
+
+id_for_reviews = 'matsuharu-japanese-restaurant-el-paso','tsunami-sushi-el-paso', 'kaizen-sushi-el-paso','aki-sushi-el-paso','hamachi-sushi-el-paso','riyoma-el-paso','koze-el-paso'
+reviews_result = yelp_api.reviews_query(id=id_for_reviews)
+print(reviews_result)
+
+
+
+
+
+
+
+
+
 reviews_df = pd.DataFrame.from_dict(reviews_result['reviews'])
 print(reviews_df['text'])
 reviews_df.to_csv(f"{id_for_reviews}_reviews_")
